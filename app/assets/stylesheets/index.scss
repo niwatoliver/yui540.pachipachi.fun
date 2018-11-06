@@ -15,7 +15,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  video {
+  &_video {
     @media screen and (min-width: 769px){
       max-height: 99%;
       max-width: 99%;
@@ -23,12 +23,18 @@ body {
 
     @media screen and (max-width: 768px){
       transform: rotate( 90deg );
-      max-height: 99vw;
-      max-width: 99vh;
+      max-height: 96vw;
+      max-width: 96vh;
+
+      @media screen and (orientation: landscape) {
+        transform: rotate( 0deg );
+        max-height: 96vh;
+        max-width: 96vw;
+      }
     }
   }
 
-  img {
+  &_img {
     @media screen and (min-width: 769px){
       max-height: 99%;
       max-width: 99%;
@@ -36,8 +42,46 @@ body {
 
     @media screen and (max-width: 768px){
       transform: rotate( 90deg );
-      max-height: 99vw;
-      max-width: 99vh;
+      max-height: 96vw;
+      max-width: 96vh;
+
+      @media screen and (orientation: landscape) {
+        transform: rotate( 0deg );
+        max-height: 96vh;
+        max-width: 96vw;
+      }
+    }
+  }
+
+  .c-sound {
+    cursor: pointer;
+    position: absolute;
+    padding: 12px;
+    border-radius: 100%;
+    border: 1px solid #696969;
+    width: 32px;
+    height: 32px;
+    bottom: 32px;
+    right: 32px;
+
+    &_off {
+      margin-left: -4px;
+    }
+
+    &_up {
+      display: none;
+    }
+
+    @media screen and (max-width: 768px){
+      transform: rotate( 90deg );
+      right: unset;
+      left: 32px;
+
+      @media screen and (orientation: landscape) {
+        transform: rotate( 0deg );
+        right: 32px;
+        left: unset;
+      }
     }
   }
 }
