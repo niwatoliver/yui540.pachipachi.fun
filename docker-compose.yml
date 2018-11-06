@@ -23,6 +23,14 @@ services:
       - db
     stdin_open: true
     tty: true
+  nginx:
+    image: nginx:1.13.5-alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - web
 volumes:
   mysql:
   bundle:
