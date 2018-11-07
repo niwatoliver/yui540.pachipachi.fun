@@ -25,8 +25,18 @@
       <div class="l-message_action">
         <%= f.submit '送信', class: 'l-message_btn', data: { disable_with: '送信中' } %>
       </div>
-    <% end %>
 
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      <a class="twitter-share-button"
+         href="https://twitter.com/share"
+         data-size="large"
+         data-hashtags="yui540誕生日おめでとう"
+         data-text="🎉yui540誕生日おめでとう🎉 https://yui540.pachipachi.fun"
+         data-lang="ja"
+         data-dnt="true">
+      </a>
+
+    <% end %>
     <div class="l-message_list">
       <% @messages.each do |m| %>
         <div class="l-message_item">
