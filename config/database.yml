@@ -16,6 +16,9 @@ default: &default
   username: root
   password:
   host: db
+  charset: utf8mb4
+  collation: utf8mb4_bin
+  encoding: utf8mb4
 
 development:
   <<: *default

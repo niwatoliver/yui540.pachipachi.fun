@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_11_06_165426) do
 
-  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.string "text"
     t.datetime "created_at", null: false
