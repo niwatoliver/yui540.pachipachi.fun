@@ -4,11 +4,17 @@ class HomeController < ApplicationController
 
   def message
     @message = Message.new(name: 'とくめいさん')
-    @messages = Message.all
+    @messages = Message.all.order(id: :desc).limit(1024)
   end
 
   def message_create
-    Message.create(message_params)
+    message = Message.new(message_params)
+    if message.save
+      flash[:notice] = '送信しました'
+    else
+      flash[:alert] = 'エラーが発生しました'
+    end
+    redirect_to action: :message
   end
 
   private

@@ -199,3 +199,43 @@ input, button, textarea, select {
     border-bottom: none;
   }
 }
+
+.c-alert {
+  text-align: center;
+  padding: 16px 0;
+  color: #a94442;
+  border: 1px solid #ebcccc;
+  background-color: #f2dede;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.c-notice {
+  text-align: center;
+  padding: 16px 0;
+  background-color: #dff0d8;
+  border: 1px solid #d0e9c6;
+  color: #3c763d;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+
+.l-message_list {
+
+}
+
+.l-message_item {
+  padding: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #5d627b;
+
+  &Name {
+    padding: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  &Text {
+
+  }
+}

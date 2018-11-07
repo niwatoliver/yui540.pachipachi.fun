@@ -1,3 +1,13 @@
+<% if flash[:alert] %>
+  <div class="c-alert">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+<% if flash[:notice] %>
+  <div class="c-notice">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <div class="l-message">
   <img src="/birthday.png" alt="birthday" class="l-message_img">
   <img src="/birthday_mobile.png" alt="birthday" class="l-message_imgMobile">
@@ -6,9 +16,9 @@
     <%= form_for @message, url: message_create_path do |f| %>
       <div class="l-message_field">
         <h1 class="l-message_title">🎉 yui540 に誕生日メッセージを送る 🎉</h1>
-        <%= f.label :name, '名前' %>
+        <%= f.label :name, '名前（64文字まで）' %>
         <%= f.text_field :name, id: :message_name, maxlength: 64 %>
-        <%= f.label :text, 'メッセージ' %>
+        <%= f.label :text, 'メッセージ（1024文字まで）' %>
         <%= f.text_area :text, id: :message_text, placeholder: 'ここにメッセージを書いてね！', maxlength: 1024 %>
       </div>
 
@@ -17,10 +27,12 @@
       </div>
     <% end %>
 
-    <div>
+    <div class="l-message_list">
       <% @messages.each do |m| %>
-        <div><%=m.name %></div>
-        <div><%=m.text %></div>
+        <div class="l-message_item">
+          <div class="l-message_itemName"><%= m.name %></div>
+          <div class="l-message_itemText"><%= m.text %></div>
+        </div>
       <% end %>
     </div>
   </div>
