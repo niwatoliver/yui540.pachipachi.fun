@@ -4,20 +4,19 @@ services:
     image: mysql:5.7
     env_file: .env
     ports:
-      - '3306'
+      - '127.0.0.1:3306:3306'
     volumes:
       - mysql:/var/lib/mysql
   web:
     build:
       context: .
-      dockerfile: ./docker/rails/Dockerfile
+      dockerfile: ./docker/production/rails/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s puma -b 0.0.0.0 -p 3000 -e production"
     env_file: .env
     volumes:
-      - .:/app
       - bundle:/usr/local/bundle
     ports:
-      - "3000"
+      - "127.0.0.1:3000:3000"
     depends_on:
       - db
     stdin_open: true
