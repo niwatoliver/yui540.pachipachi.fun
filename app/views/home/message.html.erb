@@ -1,6 +1,29 @@
-<div class="l-page">
-  <img src="/birthday.png" alt="birthday">
-  <div>
-    <p>ここにメッセージ</p>
+<div class="l-message">
+  <img src="/birthday.png" alt="birthday" class="l-message_img">
+  <img src="/birthday_mobile.png" alt="birthday" class="l-message_imgMobile">
+  <div class="l-message_text">
+
+    <%= form_for @message, url: message_create_path do |f| %>
+      <div class="l-message_field">
+        <h1 class="l-message_title">🎉 yui540 に誕生日メッセージを送る 🎉</h1>
+        <%= f.label :name, '名前' %>
+        <%= f.text_field :name, id: :message_name, maxlength: 64 %>
+        <%= f.label :text, 'メッセージ' %>
+        <%= f.text_area :text, id: :message_text, placeholder: 'ここにメッセージを書いてね！', maxlength: 1024 %>
+      </div>
+
+      <div class="l-message_action">
+        <%= f.submit '送信', class: 'l-message_btn', data: { disable_with: '送信中' } %>
+      </div>
+    <% end %>
+
+    <div>
+      <% @messages.each do |m| %>
+        <div><%=m.name %></div>
+        <div><%=m.text %></div>
+      <% end %>
+    </div>
   </div>
 </div>
+
+

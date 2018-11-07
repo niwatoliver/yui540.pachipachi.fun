@@ -20,5 +20,24 @@ document.addEventListener('DOMContentLoaded', function () {
       video.muted= true;
     });
   }
-});
 
+  var name = document.getElementById('message_name');
+  var text = document.getElementById('message_text');
+
+  if(name && text){
+    var form = document.getElementById('new_message');
+    form.addEventListener('submit', function (event) {
+      if(name.value.length === 0 || text.value.length === 0) {
+        alert( '名前とメッセージを入力してね！' );
+        event.preventDefault();
+        var button = document.getElementsByClassName('l-message_btn')[0];
+        button.dataset.disableWith = '送信';
+        setTimeout(function () {
+            button.disabled = false;
+            button.value = '送信';
+            button.dataset.disableWith = '送信中';
+          }, 500);
+      }
+    })
+  }
+});
